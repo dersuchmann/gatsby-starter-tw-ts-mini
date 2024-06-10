@@ -70,69 +70,10 @@ const moreLinks = [
 
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`;
 
-const styles = {
-  list: css`
-    display: grid;
-    margin: 0;
-    /* https://css-tricks.com/responsive-layouts-fewer-media-queries/ */
-    --w: 280px;
-    --n: 2;
-    gap: var(--size-gap);
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(max(var(--w), 100%/ (var(--n) + 1) + 0.1%), 1fr)
-    );
-    margin-bottom: var(--size-gap);
-    margin-top: var(--size-gap);
-  `,
-
-  listItem: css`
-    margin: 0;
-    &::marker {
-      color: #e95800;
-    }
-
-    &:nth-child(2)::marker {
-      color: #159bf3;
-    }
-
-    &:nth-child(3)::marker {
-      color: #8eb814;
-    }
-
-    &:nth-child(4)::marker {
-      color: #663399;
-    }
-  `,
-
-  listItemLink: css`
-    color: var(--color-primary);
-    font-weight: bold;
-  `,
-  listItemDescription: css`
-    color: var(--color-text);
-    margin-bottom: 0;
-    margin-top: var(--space-1);
-  `,
-
-  textCenter: css`
-    text-align: center;
-  `,
-
-  intro: css`
-    max-width: none;
-    line-height: var(--line-height-loose);
-  `,
-};
-
 const IndexPage = ({}: PageProps) => (
   <Layout>
-    <div css={styles.textCenter}>
-      <div
-        css={css`
-          margin-bottom: var(--space-3);
-        `}
-      >
+    <div css={tw`text-center`}>
+      <div css={tw`mb-4`}>
         <StaticImage
           src="../images/example.png"
           loading="eager"
@@ -145,7 +86,7 @@ const IndexPage = ({}: PageProps) => (
       <h1>
         Welcome to <b>Gatsby!</b>
       </h1>
-      <p css={styles.intro}>
+      <p css={tw`max-w-none leading-loose`}>
         <b>Example pages:</b>{" "}
         {samplePageLinks.map((link, i) => (
           <React.Fragment key={link.url}>
@@ -157,13 +98,48 @@ const IndexPage = ({}: PageProps) => (
         Edit <code>src/pages/index.js</code> to update this page.
       </p>
     </div>
-    <ul css={styles.list}>
+    <ul
+      css={[
+        tw`grid m-0 my-[var(--size-gap)] mx-0 gap-[var(--size-gap)]`,
+        css`
+          /* https://css-tricks.com/responsive-layouts-fewer-media-queries/ */
+          --w: 280px;
+          --n: 2;
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(max(var(--w), 100%/ (var(--n) + 1) + 0.1%), 1fr)
+          );
+        `,
+      ]}
+    >
       {links.map(link => (
-        <li key={link.url} css={styles.listItem}>
-          <a css={styles.listItemLink} href={`${link.url}${utmParameters}`}>
+        <li
+          key={link.url}
+          css={[
+            tw`m-0`,
+            css`
+              &::marker {
+                color: #e95800;
+              }
+              &:nth-child(2)::marker {
+                color: #159bf3;
+              }
+              &:nth-child(3)::marker {
+                color: #8eb814;
+              }
+              &:nth-child(4)::marker {
+                color: #663399;
+              }
+            `,
+          ]}
+        >
+          <a
+            css={tw`font-bold text-[var(--color-primary)]`}
+            href={`${link.url}${utmParameters}`}
+          >
             {link.text} ↗
           </a>
-          <p css={styles.listItemDescription}>{link.description}</p>
+          <p css={tw`mt-1 mb-0 text-[var(--color-text)]`}>{link.description}</p>
         </li>
       ))}
     </ul>

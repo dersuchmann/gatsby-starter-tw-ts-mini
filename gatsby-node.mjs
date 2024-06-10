@@ -1,10 +1,3 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
- */
-
-
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 

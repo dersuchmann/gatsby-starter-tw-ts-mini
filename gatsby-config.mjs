@@ -1,9 +1,3 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -38,7 +32,7 @@ export default {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-tw-ts`,
+        name: `gatsby-starter-tw-ts-mini`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
