@@ -1,10 +1,11 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import * as React from "react";
+import tw, { css, styled } from "twin.macro";
+import type { HeadFC, PageProps } from "gatsby";
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 const links = [
   {
@@ -31,7 +32,7 @@ const links = [
     description:
       "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
   },
-]
+];
 
 const samplePageLinks = [
   {
@@ -44,7 +45,7 @@ const samplePageLinks = [
   { text: "TypeScript", url: "using-typescript" },
   { text: "Server Side Rendering", url: "using-ssr" },
   { text: "Deferred Static Generation", url: "using-dsg" },
-]
+];
 
 const moreLinks = [
   { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
@@ -65,26 +66,86 @@ const moreLinks = [
     url: "https://www.gatsbyjs.com/contributing/",
   },
   { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
+];
 
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`;
 
-const IndexPage = () => (
+const styles = {
+  list: css`
+    display: grid;
+    margin: 0;
+    /* https://css-tricks.com/responsive-layouts-fewer-media-queries/ */
+    --w: 280px;
+    --n: 2;
+    gap: var(--size-gap);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(max(var(--w), 100%/ (var(--n) + 1) + 0.1%), 1fr)
+    );
+    margin-bottom: var(--size-gap);
+    margin-top: var(--size-gap);
+  `,
+
+  listItem: css`
+    margin: 0;
+    &::marker {
+      color: #e95800;
+    }
+
+    &:nth-child(2)::marker {
+      color: #159bf3;
+    }
+
+    &:nth-child(3)::marker {
+      color: #8eb814;
+    }
+
+    &:nth-child(4)::marker {
+      color: #663399;
+    }
+  `,
+
+  listItemLink: css`
+    color: var(--color-primary);
+    font-weight: bold;
+  `,
+  listItemDescription: css`
+    color: var(--color-text);
+    margin-bottom: 0;
+    margin-top: var(--space-1);
+  `,
+
+  textCenter: css`
+    text-align: center;
+  `,
+
+  intro: css`
+    max-width: none;
+    line-height: var(--line-height-loose);
+  `,
+};
+
+const IndexPage = ({}: PageProps) => (
   <Layout>
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
+    <div css={styles.textCenter}>
+      <div
+        css={css`
+          margin-bottom: var(--space-3);
+        `}
+      >
+        <StaticImage
+          src="../images/example.png"
+          loading="eager"
+          width={64}
+          quality={95}
+          formats={["auto", "webp", "avif"]}
+          alt=""
+        />
+      </div>
       <h1>
         Welcome to <b>Gatsby!</b>
       </h1>
-      <p className={styles.intro}>
+      <p css={styles.intro}>
         <b>Example pages:</b>{" "}
         {samplePageLinks.map((link, i) => (
           <React.Fragment key={link.url}>
@@ -96,16 +157,13 @@ const IndexPage = () => (
         Edit <code>src/pages/index.js</code> to update this page.
       </p>
     </div>
-    <ul className={styles.list}>
+    <ul css={styles.list}>
       {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
+        <li key={link.url} css={styles.listItem}>
+          <a css={styles.listItemLink} href={`${link.url}${utmParameters}`}>
             {link.text} ↗
           </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
+          <p css={styles.listItemDescription}>{link.description}</p>
         </li>
       ))}
     </ul>
@@ -116,13 +174,13 @@ const IndexPage = () => (
       </React.Fragment>
     ))}
   </Layout>
-)
+);
 
 /**
  * Head export to define metadata for the page
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="Home" />
+export const Head: HeadFC = () => <Seo title="Home" />;
 
-export default IndexPage
+export default IndexPage;

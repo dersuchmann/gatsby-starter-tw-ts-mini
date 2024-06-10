@@ -4,6 +4,11 @@
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "babelMacros": {
+    "twin": {
+      "preset": "styled-components"
+    }
+  },
   "dependencies": {
     "gatsby": "^5.13.5",
     "gatsby-plugin-image": "^3.13.1",
@@ -12,10 +17,18 @@
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.4"
   },
   "devDependencies": {
-    "prettier": "^2.8.8"
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "gatsby-plugin-styled-components": "^6.13.1",
+    "prettier": "^2.8.8",
+    "styled-components": "^6.1.11",
+    "twin.macro": "^3.4.1",
+    "typescript": "^5.4.5"
   },
   "keywords": [
     "gatsby"

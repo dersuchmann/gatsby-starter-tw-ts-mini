@@ -4,18 +4,28 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
-module.exports = {
+export default {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Gatsby Tw-Ts Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`, // for Gatsby Default Starter
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: { },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -28,7 +38,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `gatsby-starter-tw-ts`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
@@ -40,4 +50,4 @@ module.exports = {
       },
     },
   ],
-}
+};

@@ -1,10 +1,11 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from "react";
+import tw, { css, styled } from "twin.macro";
+import { Link, PageProps } from "gatsby";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
-const UsingDSG = () => (
+const UsingDSG = ({}: PageProps) => (
   <Layout>
     <h1>
       Hello from a <b>DSG Page</b>
@@ -19,8 +20,8 @@ const UsingDSG = () => (
     </p>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
-)
+);
 
-export const Head = () => <Seo title="Using DSG" />
+export const Head = () => <Seo title="Using DSG" />;
 
-export default UsingDSG
+export default UsingDSG;
