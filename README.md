@@ -1,14 +1,19 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby's default starter
+  Gatsby Tw-Ts Starter
 </h1>
 
 Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+
+It is a modification of `gatsby-starter-default` that uses TypeScript, ESM syntax, and twin.macro (combining tailwindcss and styled-components). Oh, and semicolons. Because I prefer them.
+
+I was inspired by [Christian Lobaugh's blog post](https://christianlobaugh.com/blog/2020/05/create-an-awesome-css-in-js-gatsby-setup-using-emotion-and-tailwind-css/) which, however, used emotion rather than styled-components and also did not use TypeScript. Or semicolons. Except in CSS.
+
+`Tw-Ts` is for twin.macro and TypeScript, in case you still wondered.
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
 
@@ -20,7 +25,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     ```shell
     # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
+    gatsby new my-default-starter https://github.com/dersuchmann/gatsby-starter-tw-ts
     ```
 
 1.  **Start developing.**
@@ -54,10 +59,10 @@ A quick look at the top-level files and directories you'll see in a typical Gats
     ├── node_modules
     ├── src
     ├── .gitignore
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
+    ├── gatsby-browser.tsx
+    ├── gatsby-config.mjs
+    ├── gatsby-node.mjs
+    ├── gatsby-ssr.tsx
     ├── LICENSE
     ├── package.json
     └── README.md
@@ -68,13 +73,13 @@ A quick look at the top-level files and directories you'll see in a typical Gats
 
 1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+1.  **`gatsby-browser.tx`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-1.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
+1.  **`gatsby-config.mjs`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
 
-1.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+1.  **`gatsby-node.mjs`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-1.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+1.  **`gatsby-ssr.tsx`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
 
 1.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
 
@@ -95,5 +100,3 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [Build, Deploy, and Host On Netlify](https://netlify.com)
 
 The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
